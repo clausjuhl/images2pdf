@@ -12,7 +12,7 @@ from pathlib import Path
 
 @Gooey(program_name="Images2pdf",
        return_to_config=True,
-       required_cols=1)
+       num_required_cols=1)
 def parse_args():
     desc = "Konvertér en eller flere billedfiler til en enkelt flersidet PDF-fil."
     dir_input_msg = "Vælg en folder med billeder, der skal konverteres"
@@ -32,13 +32,12 @@ def parse_args():
 
 
 def generate_pdf(image_folder, out_file):
-    # image_folder and out_file are Path-objects
+    # image_folder, out_file and fn are Path-objects
     files = []
     for fn in image_folder.rglob('*.*'):
         if fn.suffix in ['.png', '.jpg', '.jp2', '.jpeg']:
             files.append(str(fn))  # img2pdf.convert requirement
 
-    # print("in_folder: " + args.in_folder)
     with open(out_file, "wb") as f:
         f.write(img2pdf.convert(files))
 
