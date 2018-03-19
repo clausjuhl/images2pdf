@@ -1,2 +1,2 @@
 # images2pdf
-script that convert list of .jpg-, .jp2- or png-files to multipage pdf
+GUI-script that converts a folder of jpg-, jp2- or png-files to a single multipage pdf-file.

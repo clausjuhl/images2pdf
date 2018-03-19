@@ -1,40 +1,51 @@
 from gooey import Gooey, GooeyParser
-from message import display_message
+import img2pdf
+from pathlib import Path
+
+# From https://github.com/chriskiehl/Gooey/issues/207
+# For disabling gooey, you can pass --ignore-gooey as a commandline arg when
+# calling your file. For pre-filling items in Gooey, you can specify defaults
+# in your argparse code:
+# parser.add_argument("-f', '--foo', default="foobar")
+# And they'll show in the form fields when Gooey loads.
 
 
-@Gooey(dump_build_config=True,
-       program_name="Widget Demo")
-def main():
-    desc = "Example application to show Gooey's various widgets"
-    file_help_msg = "Name of the file you want to process"
+@Gooey(program_name="Images2pdf",
+       return_to_config=True,
+       required_cols=1)
+def parse_args():
+    desc = "Konvertér en eller flere billedfiler til en enkelt flersidet PDF-fil."
+    dir_input_msg = "Vælg en folder med billeder, der skal konverteres"
+    save_file_msg = "Vælg placering og filnavn for pdf-filen"
 
     parser = GooeyParser(description=desc)
+    parser.add_argument("in_folder",
+                        metavar="Vælg mappe med billedfiler",
+                        help=dir_input_msg,
+                        widget="DirChooser")
+    parser.add_argument("out_file",
+                        metavar="Vælg hvor pdf-filen skal gemmes",
+                        help=save_file_msg,
+                        widget="FileSaver")
 
-    parser.add_argument("DirectoryChooser", help=file_help_msg, widget="DirChooser")
-    parser.add_argument("FileSaver", help=file_help_msg, widget="FileSaver")
-    parser.add_argument("MultiFileSaver", help=file_help_msg, widget="MultiFileChooser")
-    parser.add_argument("directory", help="Directory to store output")
-
-    parser.add_argument('-d', '--duration', default=2, type=int, help='Duration (in seconds) of the program output')
-    parser.add_argument('-s', '--cron-schedule', type=int, help='datetime when the cron should begin', widget='DateChooser')
-    parser.add_argument("-c", "--showtime", action="store_true", help="display the countdown timer")
-    parser.add_argument("-p", "--pause", action="store_true", help="Pause execution")
-    parser.add_argument('-v', '--verbose', action='count')
-    parser.add_argument("-o", "--overwrite", action="store_true", help="Overwrite output file (if present)")
-    parser.add_argument('-r', '--recursive', choices=['yes', 'no'], help='Recurse into subfolders')
-    parser.add_argument("-w", "--writelog", default="writelogs", help="Dump output to local file")
-    parser.add_argument("-e", "--error", action="store_true", help="Stop process on error (default: No)")
-    verbosity = parser.add_mutually_exclusive_group()
-    verbosity.add_argument('-t', '--verbozze', dest='verbose', action="store_true", help="Show more details")
-    verbosity.add_argument('-q', '--quiet', dest='quiet', action="store_true", help="Only output on error")
-
-    args = parser.parse_args()
-    display_message()
+    return parser.parse_args()
 
 
-def here_is_smore():
-    pass
+def generate_pdf(image_folder, out_file):
+    # image_folder and out_file are Path-objects
+    files = []
+    for fn in image_folder.rglob('*.*'):
+        if fn.suffix in ['.png', '.jpg', '.jp2', '.jpeg']:
+            files.append(str(fn))  # img2pdf.convert requirement
+
+    # print("in_folder: " + args.in_folder)
+    with open(out_file, "wb") as f:
+        f.write(img2pdf.convert(files))
 
 
 if __name__ == '__main__':
-    main()
+    args = parse_args()
+    print("Arguments parsed")
+    print("Generating pdf...")
+    generate_pdf(Path(args.in_folder), Path(args.out_file))
+    print("Pdf-file generated. Done")
