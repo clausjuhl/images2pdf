@@ -44,10 +44,10 @@ def generate_pdf(folder_object, out_file_object):
 
 if __name__ == '__main__':
     args = parse_args()
-    print("Arguments parsed")
-    print("Generating pdf...")
+    print("Arguments parsed", flush=True)
+    print("Generating pdf...", flush=True)
     generate_pdf(Path(args.in_folder), Path(args.out_file))
-    print("Pdf-file generated")
-    print("Done")
-    print("")
-    print("Click the 'edit'-button to choose another folder to convert")
+    print("Pdf-file generated", flush=True)
+    print("Done", flush=True)
+    print("", flush=True)
+    print("Click the 'edit'-button to choose another folder to convert", flush=True)
