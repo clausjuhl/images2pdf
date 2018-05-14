@@ -2,7 +2,6 @@ from gooey import Gooey, GooeyParser
 import img2pdf
 from pathlib import Path
 
-
 # From https://github.com/chriskiehl/Gooey/issues/207
 # For disabling gooey, you can pass --ignore-gooey as a commandline arg when
 # calling your file. For pre-filling items in Gooey, you can specify defaults
