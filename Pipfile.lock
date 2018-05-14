@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8acc3fc82b5f0d074ab826b8dfdbedb7a62e1462c356c78490c74cb66bec54be"
+            "sha256": "9881ebb72f741bd4170a149d3ea06f2288f5a99f30cde80051c1046491461fb2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -35,7 +35,6 @@
             "hashes": [
                 "sha256:2b6575f5290de8ab1086f8c5490591f7e0885af682c7c1793bdaf6e64078d385"
             ],
-            "index": "pypi",
             "version": "==0.45.1"
         },
         "pillow": {
@@ -88,7 +87,6 @@
                 "sha256:effa82e72f5064439a3d2c7ff615b999eb1c4d65bb1f1e6ee6e2ddb345b3e81e",
                 "sha256:f2d71951f473744ac617b645b62d0c4df5372ef4618c425646bfe5e2e8878e61"
             ],
-            "index": "pypi",
             "version": "==4.3.0"
         },
         "psutil": {
@@ -103,7 +101,6 @@
                 "sha256:e3d00d8fc3d4217f05d07af45390f072c04cb7c7dddd70b86b728e5fbe485c81",
                 "sha256:f6c2d54abd59ed8691882de7fd6b248f5808a567885f20f50b3b4b9eedaebb1f"
             ],
-            "index": "pypi",
             "version": "==5.4.2"
         },
         "six": {
@@ -111,7 +108,6 @@
                 "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9",
                 "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"
             ],
-            "index": "pypi",
             "version": "==1.11.0"
         },
         "wxpython": {
@@ -130,7 +126,6 @@
                 "sha256:e059c4eb45d86b7b9d8b46c0a68c232feb787a9458b867f6f0e2478cac2eb1aa",
                 "sha256:e25f3e78c855dcdf1338bc667a60ba4b652408e1024797a706a0207b66f2ed4e"
             ],
-            "index": "pypi",
             "version": "==4.0.0b1"
         }
     },
@@ -204,7 +199,6 @@
                 "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9",
                 "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"
             ],
-            "index": "pypi",
             "version": "==1.11.0"
         },
         "wrapt": {

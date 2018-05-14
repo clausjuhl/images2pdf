@@ -4,13 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"img2pdf" = "*"
-olefile = "*"
-psutil = "*"
-six = "*"
+img2pdf = "*"
 Gooey = "*"
-Pillow = "==4.3.0"
-wxPython = "==4.0.0b1"
 
 [dev-packages]
 pylint = "*"
