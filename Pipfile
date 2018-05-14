@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"img2pdf" = "==0.2.4"
-olefile = "==0.45.1"
-psutil = "==5.4.2"
-six = "==1.11.0"
+"img2pdf" = "*"
+olefile = "*"
+psutil = "*"
+six = "*"
 Gooey = "*"
 Pillow = "==4.3.0"
 wxPython = "==4.0.0b1"
