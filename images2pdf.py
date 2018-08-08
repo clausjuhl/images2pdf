@@ -24,7 +24,7 @@ def parse_args():
                         help=dir_input_msg,
                         widget="DirChooser")
     parser.add_argument("out_file",
-                        metavar="Vælg hvor pdf-filen skal gemmes",
+                        metavar="Hvor skal pdf-filen skal gemmes",
                         help=save_file_msg,
                         widget="FileSaver")
 
