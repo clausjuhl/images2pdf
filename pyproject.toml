@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "images2pdf"
+version = "0.1.7"
+description = "Generér en pdf udfra en mappe med billedfiler"
+authors = ["Claus Juhl Knudsen <cjk@aarhus.dk>"]
+include = ["pyproject.toml"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+gooey = "^1.0.8.1"
+img2pdf = "^0.4.4"
+pyinstaller = "^5.11.0"
+
+[tool.poetry.scripts]
+img2pdf = "images2pdf.main:cli"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
